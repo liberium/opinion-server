@@ -1,0 +1,66 @@
+[build-system]
+requires = ["poetry>=0.14"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "opinion-server"
+version = "0.1.0"
+description = "RESTful API for http://opinion.lu"
+authors = ["Sergey Filkin <sergey.filkin@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.95.1"
+uvicorn = {extras = ["standard"], version = "^0.21.1"}
+pytest = "^7.3.1"
+coverage = "^7.2.3"
+black = "^23.3.0"
+isort = "^5.12.0"
+fastapi-sqlalchemy = "^0.2.1"
+alembic = "^1.10.4"
+psycopg2 = "^2.9.6"
+python-dotenv = "^1.0.0"
+aiogram = "^2.25.1"
+
+
+[tool.poetry.dev-dependencies]
+
+
+[tool.black]
+# https://github.com/psf/black
+line-length = 88
+target_version = ['py311']
+exclude = '''
+(
+  /(
+    \.git
+    | \.mypy_cache
+    | \.pytest_cache
+    | htmlcov
+    | venv
+    | .venv
+  )/
+)
+'''
+
+[tool.isort]
+line_length = 88
+indent = '    '
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+
+
+[tool.coverage]
+
+    [tool.coverage.run]
+
+    source = ["app"]
+    branch = true
+    omit = ['']
+
+    [tool.coverage.report]
+    exclude_lines = [
+        "# noqa",
+        "raise NotImplementedError"
+    ]
