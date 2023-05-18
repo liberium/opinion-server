@@ -20,7 +20,7 @@ fastapi-sqlalchemy = "^0.2.1"
 alembic = "^1.10.4"
 psycopg2 = "^2.9.6"
 python-dotenv = "^1.0.0"
-aiogram = "^2.25.1"
+aiogram = {url = "https://github.com/aiogram/aiogram/archive/refs/heads/dev-3.x.zip", allow-prereleases = true}
 
 
 [tool.poetry.dev-dependencies]

@@ -1,11 +1,11 @@
 from sqlalchemy.orm import Session
-from . import models, schemas
+from schemas import Voter as VoterDTO
+from models import Voter
 
 
-def create_voter(session: Session, voter: schemas.Voter):
-    fake_hashed_password = voter.password + "notreallyhashed"
-    db_user = models.Voter(email=voter.email, hashed_password=fake_hashed_password)
-    session.add(db_user)
+def create_voter(session: Session, voter_dto: VoterDTO):
+    voter = Voter()
+    session.add(voter)
     session.commit()
-    session.refresh(db_user)
-    return db_user
+    session.refresh(voter)
+    return voter
